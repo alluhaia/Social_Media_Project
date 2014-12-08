@@ -1,0 +1,283 @@
+
+CREATE TABLE `facebook_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `average` decimal(10,2) NOT NULL,
+  `unique_author` int(11) NOT NULL,
+  `max` int(11) DEFAULT NULL,
+  `min` int(11) DEFAULT NULL,
+  `total_fan` int(11) DEFAULT NULL,
+  `total_page` int(11) DEFAULT NULL,
+  `positive_sentiment` decimal(10,2) DEFAULT NULL,
+  `negative_sentiment` decimal(10,2) DEFAULT NULL,
+  `neutral_sentiment` decimal(10,2) DEFAULT NULL,
+  `top_page_by_fan_title` varchar(255) DEFAULT NULL,
+  `top_page_by_fan_url` varchar(255) DEFAULT NULL,
+  `top_page_fans` int(11) DEFAULT NULL,
+  `top_page_by_posts_title` varchar(255) DEFAULT NULL,
+  `top_page_by_posts_url` varchar(255) DEFAULT NULL,
+  `top_page_posts` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=28 ;
+
+
+CREATE TABLE `instagram_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `average` decimal(10,2) NOT NULL,
+  `max` int(11) NOT NULL,
+  `min` int(11) NOT NULL,
+  `top_day` date NOT NULL,
+  `positive` decimal(10,2) NOT NULL,
+  `negative` decimal(10,2) NOT NULL,
+  `neutral` decimal(10,2) NOT NULL,
+  `top_influencer_by_impact` varchar(255) NOT NULL,
+  `top_influencer_by_volume` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+
+
+
+CREATE TABLE `mentions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `raw_content` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_profile` varchar(255) NOT NULL,
+  `user_followed` varchar(255) NOT NULL,
+  `user_link_title` varchar(255) NOT NULL,
+  `user_link_behavior` varchar(255) NOT NULL,
+  `likes` int(11) NOT NULL,
+  `liked` varchar(255) NOT NULL,
+  `shared` varchar(255) NOT NULL,
+  `removable` varchar(255) NOT NULL,
+  `comments` int(11) NOT NULL,
+  `sentiment` varchar(255) NOT NULL,
+  `lead` varchar(255) NOT NULL,
+  `mention_var` varchar(255) NOT NULL,
+  `is_rich` varchar(255) NOT NULL,
+  `message_link` varchar(255) NOT NULL,
+  `link_status` varchar(255) NOT NULL,
+  `lead_action_name` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `is_repin` varchar(255) NOT NULL,
+  `pins` int(11) NOT NULL,
+  `is_post` varchar(255) NOT NULL,
+  `positive` decimal(10,2) NOT NULL,
+  `negative` decimal(10,2) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `domain` varchar(255) NOT NULL,
+  `original_platform` varchar(255) NOT NULL,
+  `country_code` varchar(255) NOT NULL,
+  `view_count` int(11) NOT NULL,
+  `rating_count` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `reply_to` varchar(255) NOT NULL,
+  `like_status` varchar(255) NOT NULL,
+  `twitter_conversations_url` varchar(255) NOT NULL,
+  `follow_status` varchar(255) NOT NULL,
+  `like_action` varchar(255) NOT NULL,
+  `tracked` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20743 ;
+
+
+
+CREATE TABLE `pinterest_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total_pins` int(11) NOT NULL,
+  `avg_pins` decimal(10,2) NOT NULL,
+  `total_repins` int(11) NOT NULL,
+  `total_boards` int(11) NOT NULL,
+  `total_likes` int(11) NOT NULL,
+  `total_reach` int(11) NOT NULL,
+  `max` int(11) NOT NULL,
+  `min` int(11) NOT NULL,
+  `unique_pinners` int(11) NOT NULL,
+  `average_daily_pins` decimal(10,2) NOT NULL,
+  `average_pins_per_pinner` decimal(10,2) NOT NULL,
+  `average_reach_per_pinner` decimal(10,2) NOT NULL,
+  `average_likes_per_pinner` decimal(10,2) NOT NULL,
+  `average_likes_per_pin` decimal(10,2) NOT NULL,
+  `average_repins_per_pin` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+
+--
+-- Table structure for table `profile`
+--
+
+CREATE TABLE `profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `expression` varchar(255) NOT NULL,
+  `tracked` varchar(255) NOT NULL,
+  `VH_id` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `created_at`, `name`, `expression`, `tracked`, `VH_id`, `category`) VALUES
+(1, '2014-10-23 16:15:36', 'Target', '((@targetnews) | (@target) | (#halloweenhills) | (#abullseyeview) | (@targetstyle) | (@asktarget) | (#anniefortarget) | (abullseyeview) | (target.com) | (a bullseye view) | (target canada) | (target.ca) | (target))  -((geolocation) | (location) | (targeti', '1', '78515', 'profile'),
+(2, '2014-10-27 19:15:46', 'Target Competitor 1 - Macys', '((Macys) | (@macys) | (Macy''s)) ', '1', '78578', 'profile'),
+(3, '2014-10-27 19:24:33', 'Target Competitor 2 - Kohl''s', '((kohls) | (kohl''s) | (kohls.com) | (#findyouryes)) ', '1', '78581', 'profile');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `source`
+--
+
+CREATE TABLE `source` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `source`
+--
+
+INSERT INTO `source` (`id`, `name`) VALUES
+(1, 'facebook'),
+(2, 'twitter'),
+(3, 'pinterest'),
+(4, 'instagram'),
+(5, 'tumblr'),
+(6, 'video'),
+(7, 'website');
+
+
+CREATE TABLE `trends` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `count` int(11) DEFAULT NULL,
+  `positive` decimal(10,2) DEFAULT NULL,
+  `negative` decimal(10,2) DEFAULT NULL,
+  `neutral` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=485 ;
+
+CREATE TABLE `tumblr_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `average` decimal(10,2) NOT NULL,
+  `max` int(11) NOT NULL,
+  `min` int(11) NOT NULL,
+  `top_day` datetime NOT NULL,
+  `positive` decimal(10,2) NOT NULL,
+  `negative` decimal(10,2) NOT NULL,
+  `neutral` decimal(10,2) NOT NULL,
+  `top_influencer_all` varchar(255) NOT NULL,
+  `top_influencer_by_answer` varchar(255) NOT NULL,
+  `top_influencer_by_audio` varchar(255) NOT NULL,
+  `top_influencer_by_chat` varchar(255) NOT NULL,
+  `top_influencer_by_link` varchar(255) NOT NULL,
+  `top_influencer_by_photo` varchar(255) NOT NULL,
+  `top_influencer_by_quote` varchar(255) NOT NULL,
+  `top_influencer_by_text` varchar(255) NOT NULL,
+  `top_influencer_by_video` varchar(255) NOT NULL,
+  `top_hashtag` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+
+
+
+CREATE TABLE `twitter_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `average` decimal(10,2) NOT NULL,
+  `active_day` datetime NOT NULL,
+  `unique_author` int(11) NOT NULL,
+  `popular_author` varchar(255) NOT NULL,
+  `positive` decimal(10,2) NOT NULL,
+  `negative` decimal(10,2) NOT NULL,
+  `neutral` decimal(10,2) NOT NULL,
+  `retweets` int(11) NOT NULL,
+  `percent_retweets` decimal(10,2) NOT NULL,
+  `total_urls` int(11) NOT NULL,
+  `percent_urls` decimal(10,2) NOT NULL,
+  `top_langauge` varchar(255) NOT NULL,
+  `profile_twitter_attention` int(11) NOT NULL,
+  `top_authority` varchar(255) NOT NULL,
+  `top_authority_followers` int(11) NOT NULL,
+  `total_leads` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=52 ;
+
+
+CREATE TABLE `video_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `videos` int(11) NOT NULL,
+  `average_upload` decimal(10,2) NOT NULL,
+  `views` int(11) NOT NULL,
+  `hottest_video` varchar(255) NOT NULL,
+  `hottest_video_url` varchar(255) NOT NULL,
+  `hottest_video_views` int(11) NOT NULL,
+  `videos_today` int(11) NOT NULL,
+  `percent_change` int(11) NOT NULL,
+  `top_day` varchar(255) NOT NULL,
+  `period_high` int(11) NOT NULL,
+  `period_low` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=31 ;
+
+
+CREATE TABLE `website_stats` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `source_id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `average` decimal(10,2) NOT NULL,
+  `total_sites_today` int(11) NOT NULL,
+  `top_country` varchar(255) NOT NULL,
+  `top_domain` varchar(255) NOT NULL,
+  `top_domain_mentions` int(11) NOT NULL,
+  `top_domain_url` varchar(255) NOT NULL,
+  `top_link` varchar(255) NOT NULL,
+  `top_link_url` varchar(255) NOT NULL,
+  `top_link_mentions` int(11) NOT NULL,
+  `total_country` int(11) NOT NULL,
+  `max` int(11) NOT NULL,
+  `min` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=35 ;

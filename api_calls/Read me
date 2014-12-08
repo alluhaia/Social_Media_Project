@@ -1,0 +1,10 @@
+Read me
+
+
+To make this work, you will need to do 3 steps:
+
+1- change the database conncetion (host, username, password, database name) to your own database in the file "db_connect.php"
+
+2- For files inside api_calls folder, adjust the files paths according to your machine
+
+3- make sure to have "keys.php" that contains your (organization_id & API key) in the root folder
